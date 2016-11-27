@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="includes/bootstrap.min.css">
+		<link rel="stylesheet" href="includes/style.css">
+		
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">  
+				<div class="single-page-nav sticky-wrapper" id="tmNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="index.php#section1">Homepage</a></li>
+						<li><a href="index.php#section2">Membership</a></li>
+						<li><a href="index.php#section3">Classes</a></li>
+						<li><a href="index.php#section4">Testimonies</a></li>
+						<li><a href="index.php#section5">Feedback</a></li>
+					</ul>
+				</div>
+				<a id="tweet" href="https://twitter.com/EnergyFitCenter"><img src="img/tweet1.png" border="0" width="35px" height="35px"></a>
+				<?php
+					session_start();
+					if(!isset($_SESSION['email'])){
+						echo '<a class="nav-log" href="login.php">Login</a>';
+					} else {
+						echo '<a class="nav-log" href="logout.php">Logout</a>';
+						if($_SESSION['email'] == 'admin'){
+							echo '  <a class="nav-log" href="admin.php">Admin section</a>  ';
+						}
+					}
+				?>
+			</div>
+		</nav>
+		
+	</body>
+</html>
